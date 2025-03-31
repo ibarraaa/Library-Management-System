@@ -10,6 +10,6 @@ using namespace std;
 int main(){
 
 
-
+    cout << "Hello GROUP 3" << endl;
     return 0;
 }
