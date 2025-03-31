@@ -1,0 +1,37 @@
+Student Record System
+-Mag-input ng pangalan, ID, at course
+-Ipakita ang listahan ng mga record
+-Gamitin ang table at localStorage para sa data
+
+
+/index.html       → Main page  
+/style.css        → For styling  
+/script.js        → For logic and localStorage handling  
+
+
+
+📋 Mga features ng system:
+Input Form → Para maglagay ng student name, ID, at course.
+
+Table Display → Para ipakita ang mga record.
+
+Data Persistence (localStorage) → Para hindi mawala ang data kapag ni-reload ang page.
+
+Buttons (Edit at Delete) → Para sa basic record management.
+
+/StudentRecordSystem  
+ ├── index.html        → Login Page  
+ ├── teacher.html      → Teacher Dashboard  
+ ├── student.html      → Student Dashboard  
+ ├── style.css         → Styling  
+ ├── main.cpp          → C++ Backend Logic  
+ ├── records.txt       → Storage ng student data  
+ ├── users.txt         → Storage ng teacher/student accounts  
+ ├── compile.sh        → Compilation script  
+ ├── run.sh            → Script to run the server  
+ └── README.md         → Documentation  
+
+
+Teacher → Pwede maglagay ng student records.
+
+Student → Makikita lang ang records, hindi pwedeng mag-edit.
