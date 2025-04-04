@@ -1,51 +1,83 @@
+/* General Styles */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: gray;
     font-family: Arial, sans-serif;
+    background-color: #999;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
+
+/* Login Page */
 .container {
+    margin-top: 50px;
+}
+
+.login-box {
     background: white;
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
     width: 300px;
-    margin-bottom: 60px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-h1 {
-    color: white;
-    position: absolute;
-    top: 20px;
-    font-size: 24px;
-    font-weight: bold;
-}
-.title {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-.input-field {
-    width: 100%;
-    padding: 8px;
+
+input {
+    width: 80%;
+    padding: 10px;
     margin: 10px 0;
     border: none;
-    border-bottom: 2px solid gray;
+    border-bottom: 1px solid #333;
     outline: none;
-    text-align: center;
-    margin-bottom: 50px;
 }
-.login-btn {
-    background-color: blue;
+
+button {
+    background: rgb(3, 3, 255);
     color: white;
     border: none;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
-    width: 100px;
-}
-.about {
     margin-top: 10px;
+}
+
+.error {
+    color: rgb(255, 18, 18);
     font-size: 14px;
+}
+
+/* Dashboard */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #666;
+    color: white;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+button {
+    background: rgb(38, 27, 255);
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.history-item, .librarian-item {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
