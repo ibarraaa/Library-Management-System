@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management - Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav>
+        <h1>Library Management</h1>
+        <div class="nav-links">
+            <a href="#">Borrowers</a>
+            <a href="#">Return Requests</a>
+            <a href="#">Books</a>
+            <button id="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <div class="content">
+        <section class="borrowing-history">
+            <h2>Borrowing History</h2>
+            <div id="history-list"></div>
+        </section>
+
+        <section class="librarians">
+            <h2>Librarians</h2>
+            <div id="librarian-list"></div>
+        </section>
+    </div>
+
+    <script src="/script.js"></script> 
+</body>
+</html>
