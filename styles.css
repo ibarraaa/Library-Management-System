@@ -1,83 +1,76 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #999;
-    color: #333;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+
+* {
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
 }
 
-/* Login Page */
-.container {
-    margin-top: 50px;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #aaa;
+  color: #000;
+}
+
+.navbar {
+  background-color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links a,
+.navbar button {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.login-container {
+  text-align: center;
+  padding-top: 5rem;
 }
 
 .login-box {
-    background: white;
-    padding: 20px;
-    width: 300px;
-    margin: auto;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  background: white;
+  width: 300px;
+  padding: 2rem;
+  border-radius: 1rem;
 }
 
-input {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-bottom: 1px solid #333;
-    outline: none;
+.login-box input,
+.login-box button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.5rem;
 }
 
-button {
-    background: rgb(3, 3, 255);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 10px;
+.dashboard,
+.borrowers-page {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
-.error {
-    color: rgb(255, 18, 18);
-    font-size: 14px;
+.scrollable-box {
+  max-height: 300px;
+  overflow-y: auto;
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
 }
 
-/* Dashboard */
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background: #666;
-    color: white;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-button {
-    background: rgb(38, 27, 255);
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-}
-
-.content {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-}
-
-.history-item, .librarian-item {
-    background: white;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    text-align: left;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.form-section form input,
+.form-section form button {
+  display: block;
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.5rem;
 }
