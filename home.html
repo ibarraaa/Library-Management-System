@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2>☰</h2>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="borrowers.html">Borrowers</a>
+      <a href="return.html">Return Request</a>
+      <a href="books.html">Books</a>
+      <a href="login.html">Logout</a>
+    </nav>
+  </div>
+
+  <div class="main-content">
+    <header>
+      <h1>Welcome to Library System</h1>
+      <div id="loggedInInfo"></div>
+    </header>
+
+    <section>
+      <h2>📚 Borrowing History</h2>
+      <table>
+        <thead>
+          <tr><th>Student ID</th><th>Course</th><th>Book Title</th><th>Book ID</th></tr>
+        </thead>
+        <tbody id="borrowingHistory"></tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>👩‍💼 Librarian Login History</h2>
+      <div class="scrollable">
+        <table>
+          <thead>
+            <tr><th>Name</th><th>Email</th><th>ID</th><th>Date & Time</th><th>Total Borrows</th></tr>
+          </thead>
+          <tbody id="librarianLogs"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
