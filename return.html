@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Return Request</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2>☰</h2>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="borrowers.html">Borrowers</a>
+      <a href="return.html">Return Request</a>
+      <a href="books.html">Books</a>
+      <a href="login.html">Logout</a>
+    </nav>
+  </div>
+
+  <div class="main-content">
+    <header>
+      <h1>Return Book Request</h1>
+    </header>
+
+    <section>
+      <form id="returnForm">
+        <label for="selectBorrower">Select Book to Return:</label>
+        <select id="selectBorrower" required></select>
+        <button type="submit">Submit Return</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>📄 Return Requests</h2>
+      <ul id="returnList"></ul>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
