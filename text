@@ -1,5 +1,9 @@
-/library-management
-│── login.html
-│── dashboard.html
-│── script.js    <-- JavaScript file for all logic
-│── styles.css
+LIBRARY MANAGEMENT SYSTEM (HTML, CSS, JS + LocalStorage)
+Pages:
+        1. login.html
+        2. home.html
+        3. books.html
+        4. borrowers.html
+        5. return.html
+        6. style.css
+        7. script.js
