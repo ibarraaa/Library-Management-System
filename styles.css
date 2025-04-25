@@ -1,76 +1,110 @@
-
-* {
-  box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
-}
-
+/* style.css */
 body {
   margin: 0;
-  padding: 0;
-  background-color: #aaa;
-  color: #000;
-}
-
-.navbar {
-  background-color: #fff;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-links a,
-.navbar button {
-  margin-left: 1rem;
-  text-decoration: none;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
   color: #333;
-  font-weight: bold;
-  background: none;
-  border: none;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 200px;
+  background-color: #111;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.sidebar h2 {
+  color: white;
+  margin-top: 0;
+  text-align: center;
+}
+
+.sidebar nav a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.sidebar nav a:hover {
+  background-color: #333;
+}
+
+.main-content {
+  margin-left: 220px;
+  padding: 20px;
+}
+
+header h1 {
+  margin-top: 0;
+}
+
+form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+}
+
+form input,
+form select,
+form button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+form button {
+  background-color: #111;
+  color: white;
   cursor: pointer;
 }
 
-.login-container {
-  text-align: center;
-  padding-top: 5rem;
+form button:hover {
+  background-color: #333;
 }
 
-.login-box {
-  margin: auto;
-  background: white;
-  width: 300px;
-  padding: 2rem;
-  border-radius: 1rem;
+section {
+  margin-top: 30px;
 }
 
-.login-box input,
-.login-box button {
-  width: 100%;
-  margin-top: 1rem;
-  padding: 0.5rem;
-}
-
-.dashboard,
-.borrowers-page {
-  padding: 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.scrollable-box {
+.scrollable {
   max-height: 300px;
   overflow-y: auto;
-  background: white;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  width: 100%;
 }
 
-.form-section form input,
-.form-section form button {
-  display: block;
-  margin-top: 1rem;
+.error-msg {
+  color: red;
+}
+
+table {
   width: 100%;
-  padding: 0.5rem;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background-color: white;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  background-color: #eee;
+}
+
+.borrowed {
+  color: red;
+  font-weight: bold;
 }
