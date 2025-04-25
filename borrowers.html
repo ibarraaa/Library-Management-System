@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Borrowers Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2>☰</h2>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="borrowers.html">Borrowers</a>
+      <a href="return.html">Return Request</a>
+      <a href="books.html">Books</a>
+      <a href="login.html">Logout</a>
+    </nav>
+  </div>
+
+  <div class="main-content">
+    <header>
+      <h1>Borrowers Management</h1>
+    </header>
+
+    <section>
+      <form id="borrowerForm">
+        <input type="text" id="borrowerName" placeholder="Name" required>
+        <input type="text" id="studentId" placeholder="Student ID" required>
+        <input type="text" id="bookId" placeholder="Book ID" required>
+        <input type="text" id="course" placeholder="Course" required>
+        <button type="submit">Add Borrower</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>📋 List of Borrowers</h2>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>Student ID</th><th>Book ID</th><th>Course</th><th>Actions</th></tr>
+        </thead>
+        <tbody id="borrowersTable"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
