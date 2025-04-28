@@ -1,53 +1,378 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Books Page</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books - ACE Library Management</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="sidebar">
-    <h2>☰</h2>
-    <nav>
-      <a href="home.html">Home</a>
-      <a href="borrowers.html">Borrowers</a>
-      <a href="return.html">Return Request</a>
-      <a href="books.html">Books</a>
-      <a href="login.html">Logout</a>
-    </nav>
+
+  <div class="sidebar" onclick="toggleSidebar()">☰</div>
+  <div class="sidebar-links" id="sidebarLinks">
+    <a href="home.html">Home</a>
+    <a href="borrowers.html">Borrowers</a>
+    <a href="books.html">Books</a>
+    <a href="login.html">Logout</a>
+  </div>
+
+  <div class="header">
+    <span id="loggedInName"></span>
   </div>
 
   <div class="main-content">
-    <header>
-      <h1>Books Management</h1>
-    </header>
+    <h1>Library Books</h1>
 
-    <section>
-      <form id="addBookForm">
-        <input type="number" id="bookId" placeholder="Book ID" required>
-        <input type="text" id="bookTitle" placeholder="Book Title" required>
-        <input type="text" id="bookAuthor" placeholder="Author" required>
-        <button type="submit">Add Book</button>
-      </form>
-    </section>
+    <table>
+      <thead>
+        <tr>
+          <th>Book ID</th>
+          <th>Title</th>
+          <th>Author</th>
+        </tr>
+      </thead>
+      <tbody id="bookList"></tbody>
+    </table>
 
-    <section>
-      <h2>📚 List of Books</h2>
-      <table>
-        <thead>
-          <tr><th>ID</th><th>Title</th><th>Author</th></tr>
-        </thead>
-        <tbody id="bookList"></tbody>
-      </table>
-    </section>
-
-    <section>
-      <h2>📕 Borrowed Books</h2>
-      <ul id="borrowedBookList"></ul>
-    </section>
   </div>
 
   <script src="script.js"></script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books - ACE Library Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="sidebar" onclick="toggleSidebar()">☰</div>
+  <div class="sidebar-links" id="sidebarLinks">
+    <a href="home.html">Home</a>
+    <a href="borrowers.html">Borrowers</a>
+    <a href="books.html">Books</a>
+    <a href="login.html">Logout</a>
+  </div>
+
+  <div class="header">
+    <span id="loggedInName"></span>
+  </div>
+
+  <div class="main-content">
+    <h1>Library Books</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Book ID</th>
+          <th>Title</th>
+          <th>Author</th>
+        </tr>
+      </thead>
+      <tbody id="bookList"></tbody>
+    </table>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books - ACE Library Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="sidebar" onclick="toggleSidebar()">☰</div>
+  <div class="sidebar-links" id="sidebarLinks">
+    <a href="home.html">Home</a>
+    <a href="borrowers.html">Borrowers</a>
+    <a href="books.html">Books</a>
+    <a href="login.html">Logout</a>
+  </div>
+
+  <div class="header">
+    <span id="loggedInName"></span>
+  </div>
+
+  <div class="main-content">
+    <h1>Library Books</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Book ID</th>
+          <th>Title</th>
+          <th>Author</th>
+        </tr>
+      </thead>
+      <tbody id="bookList"></tbody>
+    </table>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books - ACE Library Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="sidebar" onclick="toggleSidebar()">☰</div>
+  <div class="sidebar-links" id="sidebarLinks">
+    <a href="home.html">Home</a>
+    <a href="borrowers.html">Borrowers</a>
+    <a href="books.html">Books</a>
+    <a href="login.html">Logout</a>
+  </div>
+
+  <div class="header">
+    <span id="loggedInName"></span>
+  </div>
+
+  <div class="main-content">
+    <h1>Library Books</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Book ID</th>
+          <th>Title</th>
+          <th>Author</th>
+        </tr>
+      </thead>
+      <tbody id="bookList"></tbody>
+    </table>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books - ACE Library Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="sidebar" onclick="toggleSidebar()">☰</div>
+  <div class="sidebar-links" id="sidebarLinks">
+    <a href="home.html">Home</a>
+    <a href="borrowers.html">Borrowers</a>
+    <a href="books.html">Books</a>
+    <a href="login.html">Logout</a>
+  </div>
+
+  <div class="header">
+    <span id="loggedInName"></span>
+  </div>
+
+  <div class="main-content">
+    <h1>Library Books</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Book ID</th>
+          <th>Title</th>
+          <th>Author</th>
+        </tr>
+      </thead>
+      <tbody id="bookList"></tbody>
+    </table>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books - ACE Library Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="sidebar" onclick="toggleSidebar()">☰</div>
+  <div class="sidebar-links" id="sidebarLinks">
+    <a href="home.html">Home</a>
+    <a href="borrowers.html">Borrowers</a>
+    <a href="books.html">Books</a>
+    <a href="login.html">Logout</a>
+  </div>
+
+  <div class="header">
+    <span id="loggedInName"></span>
+  </div>
+
+  <div class="main-content">
+    <h1>Library Books</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Book ID</th>
+          <th>Title</th>
+          <th>Author</th>
+        </tr>
+      </thead>
+      <tbody id="bookList"></tbody>
+    </table>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books - ACE Library Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="sidebar" onclick="toggleSidebar()">☰</div>
+  <div class="sidebar-links" id="sidebarLinks">
+    <a href="home.html">Home</a>
+    <a href="borrowers.html">Borrowers</a>
+    <a href="books.html">Books</a>
+    <a href="login.html">Logout</a>
+  </div>
+
+  <div class="header">
+    <span id="loggedInName"></span>
+  </div>
+
+  <div class="main-content">
+    <h1>Library Books</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Book ID</th>
+          <th>Title</th>
+          <th>Author</th>
+        </tr>
+      </thead>
+      <tbody id="bookList"></tbody>
+    </table>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books - ACE Library Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="sidebar" onclick="toggleSidebar()">☰</div>
+  <div class="sidebar-links" id="sidebarLinks">
+    <a href="home.html">Home</a>
+    <a href="borrowers.html">Borrowers</a>
+    <a href="books.html">Books</a>
+    <a href="login.html">Logout</a>
+  </div>
+
+  <div class="header">
+    <span id="loggedInName"></span>
+  </div>
+
+  <div class="main-content">
+    <h1>Library Books</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Book ID</th>
+          <th>Title</th>
+          <th>Author</th>
+        </tr>
+      </thead>
+      <tbody id="bookList"></tbody>
+    </table>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books - ACE Library Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="sidebar" onclick="toggleSidebar()">☰</div>
+  <div class="sidebar-links" id="sidebarLinks">
+    <a href="home.html">Home</a>
+    <a href="borrowers.html">Borrowers</a>
+    <a href="books.html">Books</a>
+    <a href="login.html">Logout</a>
+  </div>
+
+  <div class="header">
+    <span id="loggedInName"></span>
+  </div>
+
+  <div class="main-content">
+    <h1>Library Books</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Book ID</th>
+          <th>Title</th>
+          <th>Author</th>
+        </tr>
+      </thead>
+      <tbody id="bookList"></tbody>
+    </table>
+
+  </div>
+
+  <script src="script.js"></script>
+
 </body>
 </html>
