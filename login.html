@@ -3,48 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Library Login</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Login - ACE Library Management</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="login-container">
-    <h2>Librarian Login</h2>
-    <form id="loginForm">
-      <input type="text" id="email" placeholder="Email" required>
-      <input type="number" id="id" placeholder="5-digit ID" required>
-      <button type="submit">Login</button>
-    </form>
-    <p id="loginError" class="error-msg"></p>
-  </div>
-  <script>
-    const librarians = [
-      { name: "Anna Cruz", email: "anna@lib.com", id: "10001" },
-      { name: "Ben Santos", email: "ben@lib.com", id: "10002" },
-      { name: "Celine Yu", email: "celine@lib.com", id: "10003" },
-      { name: "Dino Reyes", email: "dino@lib.com", id: "10004" },
-      { name: "Ella Torres", email: "ella@lib.com", id: "10005" },
-      { name: "Felix Gomez", email: "felix@lib.com", id: "10006" },
-      { name: "Gina Chan", email: "gina@lib.com", id: "10007" },
-      { name: "Hector Lim", email: "hector@lib.com", id: "10008" },
-      { name: "Ivy Lopez", email: "ivy@lib.com", id: "10009" },
-      { name: "Jake Diaz", email: "jake@lib.com", id: "10010" }
-    ];
 
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const email = document.getElementById('email').value;
-      const id = document.getElementById('id').value;
-      const match = librarians.find(l => l.email === email && l.id === id);
-      if (match) {
-        localStorage.setItem('loggedInLibrarian', JSON.stringify(match));
-        const logs = JSON.parse(localStorage.getItem('librarianLogs') || '[]');
-        logs.unshift({ ...match, date: new Date().toLocaleString() });
-        localStorage.setItem('librarianLogs', JSON.stringify(logs.slice(0, 10)));
-        window.location.href = 'home.html';
-      } else {
-        document.getElementById('loginError').textContent = "Invalid credentials.";
-      }
-    });
-  </script>
+  <div class="login-page">
+    <div class="left-side">
+      <h1>ACE LIBRARY MANAGEMENT</h1>
+    </div>
+    <div class="right-side">
+      <h2>Librarian Login</h2>
+      <form id="loginForm">
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="text" id="id" placeholder="5-digit ID" required />
+        <button type="submit">Login</button>
+      </form>
+      <p id="loginError" class="error-msg"></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
