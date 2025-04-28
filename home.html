@@ -1,52 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Library Home</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - ACE Library Management</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="sidebar">
-    <h2>☰</h2>
-    <nav>
-      <a href="home.html">Home</a>
-      <a href="borrowers.html">Borrowers</a>
-      <a href="return.html">Return Request</a>
-      <a href="books.html">Books</a>
-      <a href="login.html">Logout</a>
-    </nav>
+
+  <div class="sidebar" onclick="toggleSidebar()">☰</div>
+  <div class="sidebar-links" id="sidebarLinks">
+    <a href="home.html">Home</a>
+    <a href="borrowers.html">Borrowers</a>
+    <a href="books.html">Books</a>
+    <a href="login.html">Logout</a>
+    <a href="about.html">About Us</a>
+  </div>
+
+  <div class="header">
+    <span id="loggedInName"></span>
   </div>
 
   <div class="main-content">
-    <header>
-      <h1>Welcome to Library System</h1>
-      <div id="loggedInInfo"></div>
-    </header>
+    <h1>Borrowing History</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Student ID</th>
+          <th>Course</th>
+          <th>Book ID</th> <!-- WALA na Book Title -->
+        </tr>
+      </thead>
+      <tbody id="borrowingHistory"></tbody>
+    </table>
 
-    <section>
-      <h2>📚 Borrowing History</h2>
-      <table>
-        <thead>
-          <tr><th>Student ID</th><th>Course</th><th>Book Title</th><th>Book ID</th></tr>
-        </thead>
-        <tbody id="borrowingHistory"></tbody>
-      </table>
-    </section>
-
-    <section>
-      <h2>👩‍💼 Librarian Login History</h2>
-      <div class="scrollable">
-        <table>
-          <thead>
-            <tr><th>Name</th><th>Email</th><th>ID</th><th>Date & Time</th><th>Total Borrows</th></tr>
-          </thead>
-          <tbody id="librarianLogs"></tbody>
-        </table>
-      </div>
-    </section>
+    <h1>Librarian Login History</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>ID</th>
+          <th>Date & Time</th>
+        </tr>
+      </thead>
+      <tbody id="librarianLogs"></tbody>
+    </table>
   </div>
 
   <script src="script.js"></script>
+
 </body>
 </html>
