@@ -121,3 +121,52 @@ body {
     padding: 50px;
   }
   
+
+
+
+  /*
+      para sa about css
+  */
+
+
+  .about-page {
+    min-height: 100vh;
+    background-color: #999;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    box-sizing: border-box;
+  }
+  
+  .about-profiles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: 40px 0;
+  }
+  
+  .profile img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+  }
+  
+  .profile p {
+    margin-top: 10px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+  }
+  
+  .about-desc {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 16px;
+  }
+  
+
+
+
+
