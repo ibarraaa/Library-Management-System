@@ -17,12 +17,14 @@
       <h2>Librarian Login</h2>
       <form id="loginForm">
         <input type="email" id="email" placeholder="Email" required />
-        <input type="text" id="id" placeholder="5-digit ID" required />
+        <input type="number" id="id" placeholder="5-digit ID" max="55555" required />
         <button type="submit">Login</button>
       </form>
       <p id="loginError" class="error-msg"></p>
     </div>
   </div>
+
   <script src="script.js"></script>
+
 </body>
 </html>
