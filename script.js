@@ -1,168 +1,245 @@
-/* Basic reset and font */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: white;
-    color: #333;
+// Sidebar toggle
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebarLinks');
+  sidebar.style.display = sidebar.style.display === 'block' ? 'none' : 'block';
+}
+
+// Librarian accounts
+const librarians = [
+  { name: "Anna Cruz", email: "anna@ace.edu", id: "10001" },
+  { name: "Ben Santos", email: "ben@ace.edu", id: "10002" },
+  { name: "Celine Yu", email: "celine@ace.edu", id: "10003" },
+  { name: "Dino Reyes", email: "dino@ace.edu", id: "10004" },
+  { name: "Ella Torres", email: "ella@ace.edu", id: "10005" },
+  { name: "Felix Gomez", email: "felix@ace.edu", id: "10006" },
+  { name: "Gina Chan", email: "gina@ace.edu", id: "10007" },
+  { name: "Hector Lim", email: "hector@ace.edu", id: "10008" },
+  { name: "Ivy Lopez", email: "ivy@ace.edu", id: "10009" },
+  { name: "Jake Diaz", email: "jake@ace.edu", id: "10010" }
+];
+
+// Preload 100 School Books
+function preloadBooks() {
+  if (!localStorage.getItem('books')) {
+    const books = [];
+    const subjects = ["English", "Math", "Science", "History", "Computer Science", "Business", "Education", "Engineering", "Social Science", "Arts"];
+    for (let i = 1; i <= 100; i++) {
+      books.push({ id: String(i).padStart(3, '0'), title: `${subjects[Math.floor((i-1)/10)]} Book ${i}`, author: `Author ${i}` });
+    }
+    localStorage.setItem('books', JSON.stringify(books));
   }
-  
-  /* Sidebar and Burger */
-  .sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 60px;
-    height: 100vh;
-    background-color: #111;
-    color: white;
-    font-size: 24px;
-    padding: 10px;
-    cursor: pointer;
+}
+preloadBooks();
+
+// Login
+const loginForm = document.getElementById('loginForm');
+if (loginForm) {
+  loginForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const id = document.getElementById('id').value;
+    const librarian = librarians.find(lib => lib.email === email && lib.id === id);
+    
+    if (librarian) {
+      localStorage.setItem('loggedInLibrarian', JSON.stringify(librarian));
+      const logs = JSON.parse(localStorage.getItem('librarianLogs') || '[]');
+      logs.unshift({ ...librarian, date: new Date().toLocaleString() });
+      localStorage.setItem('librarianLogs', JSON.stringify(logs.slice(0, 10)));
+
+      // SHOW LOADING MESSAGE + DELAYED REDIRECT
+      const loading = document.getElementById("loadingLogin");
+      if (loading) loading.style.display = "block";
+      document.body.style.opacity = "0.5";
+
+      setTimeout(() => {
+        window.location.href = 'home.html';
+      }, 3000); // 3-second delay
+
+
+    } 
+    
+    else {
+      document.getElementById('loginError').textContent = "Invalid credentials.";
+    }
+  });
+}
+
+
+// Display logged-in librarian
+const librarian = JSON.parse(localStorage.getItem('loggedInLibrarian'));
+if (librarian && document.getElementById('loggedInName')) {
+  document.getElementById('loggedInName').textContent = librarian.name;
+}
+
+// Home Page: Render Borrowing History
+if (document.getElementById('borrowingHistory')) {
+  const borrowing = JSON.parse(localStorage.getItem('borrowers') || '[]');
+  document.getElementById('borrowingHistory').innerHTML = borrowing.map(b =>
+    `<tr>
+      <td>${b.name}</td>
+      <td>${b.studentId}</td>
+      <td>${b.course}</td>
+      <td>${b.section}</td>
+      <td>${b.bookId}</td>
+    </tr>`
+  ).join('');
+}
+
+
+// Home Page: Render Librarian Logs
+if (document.getElementById('librarianLogs')) {
+  const logs = JSON.parse(localStorage.getItem('librarianLogs') || '[]');
+  document.getElementById('librarianLogs').innerHTML = logs.map(l =>
+    `<tr><td>${l.name}</td><td>${l.email}</td><td>${l.id}</td><td>${l.date}</td></tr>`
+  ).join('');
+}
+
+// Borrowers Page
+if (document.getElementById('borrowerForm')) {
+  const form = document.getElementById('borrowerForm');
+  const table = document.getElementById('borrowersTable');
+
+  function renderBorrowers() {
+    const borrowers = JSON.parse(localStorage.getItem('borrowers') || '[]');
+    table.innerHTML = borrowers.map((b, i) =>
+      `<tr>
+    
+              <td>${b.name}</td>
+              <td>${b.studentId}</td>
+              <td>${b.bookId}</td>
+              <td>${b.course}</td>
+              <td>${b.section}</td>
+
+            <td>
+                <button onclick="editBorrower(${i})">Edit</button> 
+                <button onclick="deleteBorrower(${i})">Delete</button>
+            </td>
+
+
+      </tr>`
+    ).join('');
   }
-  
-  .sidebar-links {
-    display: none;
-    position: fixed;
-    left: 60px;
-    top: 0;
-    width: 150px;
-    background-color: #111;
-    height: 100vh;
-    flex-direction: column;
-    padding: 20px;
-  }
-  
-  .sidebar-links a {
-    color: white;
-    text-decoration: none;
-    margin: 10px 0;
-    display: block;
-  }
-  
-  .sidebar-links a:hover {
-    background-color: #333;
-    padding: 5px;
-    border-radius: 5px;
-  }
-  
-  /* Header */
-  .header {
-    margin-left: 70px;
-    background-color: #eee;
-    padding: 10px;
-    text-align: right;
-  }
-  
-  /* Main Content */
-  .main-content {
-    margin-left: 70px;
-    padding: 20px;
-  }
-  
-  /* Forms and Inputs */
-  input, button, select {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    box-sizing: border-box;
-  }
-  
-  button {
-    background-color: black;
-    color: white;
-    border: none;
-  }
-  
-  button:hover {
-    background-color: #333;
-  }
-  
-  /* Tables */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  table th, table td {
-    border: 1px solid #ccc;
-    padding: 10px;
-  }
-  
-  /* Borrowed Book Highlight */
-  .borrowed {
-    color: red;
-    font-weight: bold;
-  }
-  
-  /* Error Message */
-  .error-msg {
-    color: red;
-  }
-  
-  /* Login Page */
-  .login-page {
-    display: flex;
-    height: 100vh;
-  }
-  
-  .left-side {
-    flex: 1;
-    background-color: black;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-  }
-  
-  .right-side {
-    flex: 1;
-    padding: 50px;
-  }
-  
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const borrowers = JSON.parse(localStorage.getItem('borrowers') || '[]');
+    const books = JSON.parse(localStorage.getItem('books') || '[]');
+
+    const bookIdInput = form.bookId.value.trim();
+    const book = books.find(bk => bk.id === bookIdInput);
+    
 
 
 
-  /*
-      para sa about css
-  */
+
+    if (!book) {
+      alert("Invalid Book ID. Please enter a valid 3-digit Book ID (001 to 100).");
+      return;
+    }
+
+    borrowers.push({
+      name: form.borrowerName.value,
+      studentId: form.studentId.value,
+      bookId: book.id,
+      bookTitle: book.title, // even if not shown in Home, still useful internally
+      course: form.course.value,
+      section: form.section.value
+    });
+
+    localStorage.setItem('borrowers', JSON.stringify(borrowers));
+    form.reset();
 
 
-  .about-page {
-    min-height: 100vh;
-    background-color: #999;
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-    box-sizing: border-box;
+      // adding prompt
+    const saving = document.getElementById("savingMessage");
+    if (saving) saving.style.display = "block";
+        document.body.style.opacity = "0.5";
+    
+    setTimeout(() => {
+      localStorage.setItem('borrowers', JSON.stringify(borrowers));
+      form.reset();
+      renderBorrowers();
+    
+      document.body.style.opacity = "1";
+      saving.style.display = "none";
+      
+      alert("✅ Successfully added borrower!");
+    }, 4000); // 1-second delay
+    
+
+
+
+    renderBorrowers();
+  });
+
+  window.editBorrower = function(index) {
+    const borrowers = JSON.parse(localStorage.getItem('borrowers'));
+    const b = borrowers[index];
+    document.getElementById('borrowerName').value = b.name;
+    document.getElementById('studentId').value = b.studentId;
+    document.getElementById('bookId').value = b.bookId;
+    document.getElementById('course').value = b.course;
+    document.getElementById('section').value = b.section;
+    borrowers.splice(index, 1);
+    localStorage.setItem('borrowers', JSON.stringify(borrowers));
+    renderBorrowers();
+  };
+
+  window.deleteBorrower = function(index) {
+    const borrowers = JSON.parse(localStorage.getItem('borrowers'));
+    borrowers.splice(index, 1);
+    localStorage.setItem('borrowers', JSON.stringify(borrowers));
+    renderBorrowers();
+  };
+
+  renderBorrowers();
+}
+
+// Books Page
+if (document.getElementById('bookList')) {
+  const books = JSON.parse(localStorage.getItem('books') || '[]');
+  const borrowedBooks = (JSON.parse(localStorage.getItem('borrowers') || '[]')).map(b => b.bookId);
+  document.getElementById('bookList').innerHTML = books.map(book => `
+    <tr>
+      <td class="${borrowedBooks.includes(book.id) ? 'borrowed' : ''}">${book.id}</td>
+      <td>${book.title}</td>
+      <td>${book.author}</td>
+    </tr>
+  `).join('');
+}
+
+
+
+// 2-second delayed navigation for sidebar links
+document.addEventListener("DOMContentLoaded", function () {
+  const sidebar = document.getElementById('sidebarLinks');
+  if (sidebar) {
+    const links = sidebar.querySelectorAll("a");
+    links.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = this.getAttribute("href");
+        document.body.style.opacity = "0.5"; // optional fade effect
+        document.getElementById("loadingMessage").style.display = "block"; // loading messege
+        setTimeout(() => {
+          window.location.href = target;
+        }, 1000); // 2 seconds
+      });
+    });
   }
-  
-  .about-profiles {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin: 40px 0;
-  }
-  
-  .profile img {
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-  }
-  
-  .profile p {
-    margin-top: 10px;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px black;
-  }
-  
-  .about-desc {
-    max-width: 700px;
-    margin: 0 auto;
-    font-size: 16px;
-  }
-  
+});
+
+
+
+// log out function;
+function logout() {
+  const message = document.getElementById("logoutMessage");
+  if (message) message.style.display = "block";
+  document.body.style.opacity = "0.5";
+
+  setTimeout(() => {
+    localStorage.removeItem('loggedInLibrarian');
+    window.location.href = 'login.html';
+  }, 2000);
+}
