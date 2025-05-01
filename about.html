@@ -15,7 +15,7 @@
     <a href="borrowers.html">Borrowers</a>
     <a href="books.html">Books</a>
     <a href="about.html">About Us</a>
-    <a href="index.html">Logout</a>
+    <a href="/index.html" onclick="logout()">Logout</a>
   </div>
 
   <div class="about-page">
@@ -43,6 +43,40 @@
     <p class="about-desc">
       Welcome to ACE Library Management System. We aim to provide a simple, efficient, and accessible system for managing school libraries and helping students and staff access information easily.
     </p>
+  </div>
+  
+
+
+
+
+
+  <div  
+        id="loadingMessage" 
+        style="display:none; 
+        position:fixed; 
+        top:50%; 
+        left:50%; 
+        transform:translate(-50%, -50%); 
+        font-size:20px; 
+        background: white; 
+        padding: 20px; 
+        border-radius: 10px; 
+        box-shadow: 0 0 10px gray;">
+            Redirecting...
+  </div>
+  
+  <div id="logoutMessage" 
+        style="display:none; 
+        position:fixed; 
+        top:50%; 
+        left:50%; 
+        transform:translate(-50%, -50%); 
+        font-size:20px; 
+        background:white; 
+        padding:20px; 
+        border-radius:10px; 
+        box-shadow:0 0 10px gray;">
+     Logging out...
   </div>
   
 
