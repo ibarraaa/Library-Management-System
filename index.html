@@ -10,25 +10,38 @@
 <body>
 
   <div class="login-page">
-              <div class="left-side">
-                <h1>ACE LIBRARY MANAGEMENT</h1>
-            </div>
+
+        <div class="left-side">
+          <h1>ACE LIBRARY MANAGEMENT</h1>
+        </div>
+
+
     <div class="right-side">
       <h2>Librarian Login</h2>
-      <form id="loginForm">
-        <input type="email" id="email" placeholder="Email" required />
-        <input type="number" id="id" placeholder="5-digit ID" max="55555" required />
-        
-        
-        <button type="submit">Login</button>
-        
-      </form>
- 
+
+          <form id="loginForm">
+            <input type="email" id="email" placeholder="Email" required />
+            <input type="number" id="id" placeholder="5-digit ID" max="55555" required />
+            <button type="submit">Login</button>
+          </form>
+
+
       <p id="loginError" class="error-msg"></p>
-      
+
+
     </div>
-    
   </div>
+
+
+  
+
+          <div id="loadingLogin"
+            style="display:none; position:fixed; top:50%; left:50%;
+            transform:translate(-50%, -50%); font-size:20px;
+            background: white; padding: 20px; border-radius: 10px;
+            box-shadow: 0 0 10px gray;">
+              Logging in...
+        </div>
 
   <script src="script.js"></script>
 
