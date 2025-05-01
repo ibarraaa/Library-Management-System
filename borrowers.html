@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="/images/acee.jpg" type="image/x-icon">
   <title>Borrowers - ACE Library Management</title>
+  <link rel="shortcut icon" href="/images/acee.jpg" type="image/x-icon">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -14,8 +14,9 @@
     <a href="home.html">Home</a>
     <a href="borrowers.html">Borrowers</a>
     <a href="books.html">Books</a>
-    <a href="index.html">Logout</a>
     <a href="about.html">About Us</a>
+    <a href="index.html">Logout</a>
+   
   </div>
 
   <div class="header">
@@ -27,18 +28,19 @@
 
     <form id="borrowerForm">
       <input type="text" id="borrowerName" placeholder="Name" required />
-      <input type="text" id="studentId" placeholder="Student ID" required />
-      <input type="text" id="bookId" placeholder="Book ID" required />
+      <input type="number" id="studentId" placeholder="Student ID" required />
+      <input type="number" id="bookId" placeholder="Book ID (e.g. 1001)" required />
+      
       <select id="course" required>
         <option value="">Select Course</option>
         <option>BSCS</option>
         <option>BSHM</option>
-        <option>EDUC</option>
+        <option>BSEd</option>
         <option>BSTM</option>
         <option>BCIS</option>
         <option>BCIT</option>
         <option>AB PSYCHOLOGY</option>
-        <option>POLSCIE</option>
+        <option>AB POLSCIE</option>
         <option>ICT</option>
         <option>TECHVOC</option>
         <option>GAS</option>
@@ -46,11 +48,24 @@
         <option>HUMS</option>
         <option>CIVIL</option>
         <option>BIOLOGY</option>
-        <option>MUSIC</option>
-        <option>ARTS AND SCIENCE</option>
-        <option>ENGINEERING</option>
-        <option>COLLEGE OF TEACHER</option>
+        <option>Bachelor of Music (BM)</option>
+        <option>Chemical Engineering</option>
+        <option>Bachelor of Elementary Education</option>
       </select>
+
+
+
+      <select id="section" required>
+        <option value="">Select Section</option>
+        <!-- dito nalang tong script, maikli lang naman to -->
+        <script>
+          for (let i = 1; i <= 20; i++) {
+            document.write(`<option>${i}</option>`);
+          }
+        </script>
+      </select>
+
+
       <button type="submit">Add Borrower</button>
     </form>
 
@@ -61,6 +76,7 @@
               <th>Student ID</th>
               <th>Book ID</th>
               <th>Course</th>
+              <th>Section</th>
               <th>Actions</th>
             </tr>
           </thead>
