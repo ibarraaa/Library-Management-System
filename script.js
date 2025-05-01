@@ -4,7 +4,7 @@ function toggleSidebar() {
   sidebar.style.display = sidebar.style.display === 'block' ? 'none' : 'block';
 }
 
-// 10 uninq Librarian accounts
+// Librarian accounts
 const librarians = [
   { name: "Anna Cruz", email: "anna@ace.edu", id: "10001" },
   { name: "Ben Santos", email: "ben@ace.edu", id: "10002" },
@@ -39,17 +39,31 @@ if (loginForm) {
     const email = document.getElementById('email').value;
     const id = document.getElementById('id').value;
     const librarian = librarians.find(lib => lib.email === email && lib.id === id);
+    
     if (librarian) {
       localStorage.setItem('loggedInLibrarian', JSON.stringify(librarian));
       const logs = JSON.parse(localStorage.getItem('librarianLogs') || '[]');
       logs.unshift({ ...librarian, date: new Date().toLocaleString() });
       localStorage.setItem('librarianLogs', JSON.stringify(logs.slice(0, 10)));
-      window.location.href = 'home.html';
-    } else {
+
+      // SHOW LOADING MESSAGE + DELAYED REDIRECT
+      const loading = document.getElementById("loadingLogin");
+      if (loading) loading.style.display = "block";
+      document.body.style.opacity = "0.5";
+
+      setTimeout(() => {
+        window.location.href = 'home.html';
+      }, 3000); // 3-second delay
+
+
+    } 
+    
+    else {
       document.getElementById('loginError').textContent = "Invalid credentials.";
     }
   });
 }
+
 
 // Display logged-in librarian
 const librarian = JSON.parse(localStorage.getItem('loggedInLibrarian'));
@@ -114,6 +128,10 @@ if (document.getElementById('borrowerForm')) {
 
     const bookIdInput = form.bookId.value.trim();
     const book = books.find(bk => bk.id === bookIdInput);
+    
+
+
+
 
     if (!book) {
       alert("Invalid Book ID. Please enter a valid 3-digit Book ID (001 to 100).");
@@ -131,6 +149,27 @@ if (document.getElementById('borrowerForm')) {
 
     localStorage.setItem('borrowers', JSON.stringify(borrowers));
     form.reset();
+
+
+      // adding prompt
+    const saving = document.getElementById("savingMessage");
+    if (saving) saving.style.display = "block";
+        document.body.style.opacity = "0.5";
+    
+    setTimeout(() => {
+      localStorage.setItem('borrowers', JSON.stringify(borrowers));
+      form.reset();
+      renderBorrowers();
+    
+      document.body.style.opacity = "1";
+      saving.style.display = "none";
+      
+      alert("✅ Successfully added borrower!");
+    }, 4000); // 1-second delay
+    
+
+
+
     renderBorrowers();
   });
 
@@ -168,4 +207,39 @@ if (document.getElementById('bookList')) {
       <td>${book.author}</td>
     </tr>
   `).join('');
+}
+
+
+
+// 2-second delayed navigation for sidebar links
+document.addEventListener("DOMContentLoaded", function () {
+  const sidebar = document.getElementById('sidebarLinks');
+  if (sidebar) {
+    const links = sidebar.querySelectorAll("a");
+    links.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = this.getAttribute("href");
+        document.body.style.opacity = "0.5"; // optional fade effect
+        document.getElementById("loadingMessage").style.display = "block"; // loading messege
+        setTimeout(() => {
+          window.location.href = target;
+        }, 1000); // 2 seconds
+      });
+    });
+  }
+});
+
+
+
+// log out function;
+function logout() {
+  const message = document.getElementById("logoutMessage");
+  if (message) message.style.display = "block";
+  document.body.style.opacity = "0.5";
+
+  setTimeout(() => {
+    localStorage.removeItem('loggedInLibrarian');
+    window.location.href = 'login.html';
+  }, 2000);
 }
